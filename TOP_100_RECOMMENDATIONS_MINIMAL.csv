@@ -1,0 +1,35 @@
+institute,branch,quota,seat_type,closing_rank,probability,final_score
+National Institute of Technology Puducherry,CSE,HS,OBC-NCL,120407,1.20407,86.06741573033707
+National Institute of Technology Nagaland,ECE,OS,OBC-NCL,101032,1.01032,73.41573033707866
+Indian Institute of Information Technology Tiruchirappalli,ECE,AI,OBC-NCL,117273,1.17273,67.97752808988764
+National Institute of Technology Raipur,ME,OS,OBC-NCL,100497,1.00497,67.46067415730337
+National Institute of Technology Raipur,ME,OS,OPEN,103435,1.03435,67.46067415730337
+National Institute of Technology Nagaland,ME,OS,OPEN,103395,1.03395,63.41573033707866
+National Institute of Technology Delhi,Civil,HS,OBC-NCL,122958,1.22958,62.80898876404495
+INDIAN INSTITUTE OF INFORMATION TECHNOLOGY SENAPATI MANIPUR,CSE,AI,OPEN,119721,1.19721,60.0
+"Indian Institute of Information Technology Design & Manufacturing Kurnool, Andhra Pradesh",ECE,AI,OBC-NCL,117094,1.17094,60.0
+"National Institute of Electronics and Information Technology, Aurangabad (Maharashtra)",CSE,AI,OPEN,110494,1.10494,60.0
+"Puducherry Technological University, Puducherry",CSE,AI,OPEN,111360,1.1136,60.0
+National Institute of Technology Nagaland,Civil,OS,OPEN,111764,1.11764,57.41573033707866
+Indian Institute of Information Technology Bhagalpur,OTHER,AI,OBC-NCL,108487,1.08487,56.2247191011236
+"Indian Institute of Information Technology Design & Manufacturing Kurnool, Andhra Pradesh",ME,AI,OBC-NCL,101470,1.0147,56.0
+Indian Institute of Information Technology(IIIT) Dharwad,CSE,AI,OBC-NCL,100395,1.00395,56.0
+"Indian Institute of Information Technology, Vadodara International Campus Diu (IIITVICD)",CSE,AI,OBC-NCL,108581,1.08581,56.0
+"National Institute of Electronics and Information Technology, Ropar (Punjab)",CSE,AI,OPEN,102823,1.02823,56.0
+National Institute of Technology Arunachal Pradesh,Civil,OS,OPEN,103182,1.03182,53.865168539325836
+"Gati Shakti Vishwavidyalaya, Vadodara",OTHER,AI,OBC-NCL,108965,1.08965,46.0
+"Indian Institute of Information Technology, Vadodara International Campus Diu (IIITVICD)",ECE,AI,OPEN,100766,1.00766,46.0
+"International Institute of Information Technology, Bhubaneswar",ECE,AI,OBC-NCL,101001,1.01001,46.0
+"Birla Institute of Technology, Mesra, Ranchi",ME,AI,OBC-NCL,100611,1.00611,36.0
+"Birla Institute of Technology, Mesra, Ranchi",ME,AI,OPEN,107711,1.07711,36.0
+"Indian Institute of Information Technology Design & Manufacturing Kurnool, Andhra Pradesh",ME,AI,OBC-NCL,103216,1.03216,36.0
+"National Institute of Advanced Manufacturing Technology, Ranchi",ME,AI,OPEN,104085,1.04085,36.0
+"National Institute of Technology, Andhra Pradesh",ME,OS,OPEN,108499,1.08499,36.0
+"National Institute of Technology, Andhra Pradesh",ME,HS,OBC-NCL,102186,1.02186,36.0
+"National Institute of Technology, Manipur",ME,AI,OBC-NCL,104404,1.04404,36.0
+"National Institute of Technology, Mizoram",ME,OS,OPEN,100793,1.00793,36.0
+"National Institute of Technology, Silchar",ME,OS,OBC-NCL,102486,1.02486,36.0
+"National Institute of Technology, Srinagar",ME,AI,OBC-NCL,106690,1.0669,36.0
+"National Institute of Technology, Manipur",Civil,OS,OPEN,110888,1.10888,30.0
+"National Institute of Technology, Mizoram",Civil,OS,OPEN,108842,1.08842,26.0
+"National Institute of Technology, Srinagar",Civil,OS,OBC-NCL,101999,1.01999,26.0

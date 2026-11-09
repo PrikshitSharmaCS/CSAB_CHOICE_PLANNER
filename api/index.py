@@ -1,0 +1,12 @@
+import sys
+from pathlib import Path
+
+# Add root directory to sys.path so app and recommendation_engine are importable
+root_dir = Path(__file__).resolve().parent.parent
+if str(root_dir) not in sys.path:
+    sys.path.insert(0, str(root_dir))
+
+from app import app
+
+# Export app for Vercel serverless ASGI handler
+__all__ = ["app"]

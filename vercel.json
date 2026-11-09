@@ -1,0 +1,16 @@
+{
+  "version": 2,
+  "buildCommand": "npm --prefix frontend install && npm --prefix frontend run build",
+  "outputDirectory": "frontend/dist",
+  "rewrites": [
+    {
+      "source": "/api/(.*)",
+      "destination": "/api/index.py"
+    }
+  ],
+  "functions": {
+    "api/index.py": {
+      "includeFiles": "csab.db,DATA/**,recommendation_engine/**"
+    }
+  }
+}
