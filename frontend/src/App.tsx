@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Link, Route, Routes } from 'react-router-dom';
+import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/react';
 import HomePage from './pages/HomePage';
 import ProfileFormPage from './pages/ProfileFormPage';
@@ -62,6 +63,7 @@ function App() {
         <Route path="/profile" element={<ProfileFormPage />} />
         <Route path="/results" element={<ResultsPage />} />
       </Routes>
+      <Analytics />
       <SpeedInsights />
     </div>
   );
