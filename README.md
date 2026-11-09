@@ -1,120 +1,68 @@
 # 🎓 CSAB Choice Filling Assistant
 
-An intelligent, data-driven choice-filling advisor for **CSAB Special Rounds & JoSAA Counselling** for admissions into **NITs, IIITs, and GFTIs**.
+[![Live Demo](https://img.shields.io/badge/Demo-Live%20on%20Vercel-success?style=for-the-badge&logo=vercel)](https://csab-choice-planner.vercel.app/)
 
-It analyzes official CSAB cutoff archives, matches student ranks, categories, quotas, and branch preferences, and automatically generates an optimal, counselor-grade choice list categorized into **Dream**, **Target**, and **Safe** options.
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![Python: 3.10+](https://img.shields.io/badge/Python-3.10%2B-brightgreen.svg)](https://www.python.org/)
+[![FastAPI](https://img.shields.io/badge/Backend-FastAPI-009688.svg)](https://fastapi.tiangolo.com/)
+[![React + Vite](https://img.shields.io/badge/Frontend-React%20%2B%20Vite-61DAFB.svg)](https://vitejs.dev/)
+[![Tailwind CSS](https://img.shields.io/badge/Styling-Tailwind%20CSS-38B2AC.svg)](https://tailwindcss.com/)
 
----
+> **Live Application**: 🚀 **[csab-choice-planner.vercel.app](https://csab-choice-planner.vercel.app/)**
 
-## ✨ Features
+An algorithmic, counsellor-grade choice-filling advisor for **CSAB Special Rounds & JoSAA Counselling** (NITs, IIITs, and GFTIs). 
 
-- **🎯 Intelligent Categorization**:
-  - **Dream (Ambitious)**: High-tier branches where closing ranks are slightly above user rank (cutoff up to 25% tighter).
-  - **Target (Realistic)**: Balanced options where the student is well within the competitive zone.
-  - **Safe (Guaranteed Backups)**: High-probability safety colleges to ensure the student never leaves counselling empty-handed.
-- **⚡ Desirability Score Engine**: Ranks choices combining **Branch Preference (50%)**, **Institute Reputation (40%)**, **Admission Probability (10%)**, and **Home State Quota Bonus (+5 pts)**.
-- **🏛️ Comprehensive Database**: Pre-indexed SQLite database covering **108 Institutes**, **185 Programs**, and **3,300+ CSAB Cutoff data points** across all quotas (OS, HS, AI, GO).
-- **🌓 Modern Web UI**: Built with React, TypeScript, and Tailwind CSS, featuring dark mode, category filtering, search, and responsive mobile layout.
-- **🚀 One-Click Cloud Deployment**: Configured for instant deployment on **Render**, **Vercel**, or **Docker** so users can access it without installing Python or Node.js locally!
+It evaluates historical CSAB cutoff trends, category reservations, quotas (Home State, Other State, All India), and personal branch preferences to compute an optimal, risk-balanced choice list categorized into **Dream**, **Target**, and **Safe** tiers.
 
 ---
 
-## 🌐 Deploy to the Web (Free Online Access)
+## 🌟 Key Features
 
-To let anyone access your assistant online through their browser without installing anything on their desktop, choose either **Render** (easiest for full-stack) or **Vercel**:
-
-### Option 1: Deploy with Render (Recommended — 100% Free Full-Stack)
-
-Render runs both the Python FastAPI backend and the React frontend together seamlessly on a single URL.
-
-1. Push this repository to your **GitHub** account.
-2. Sign in to [Render.com](https://render.com) (free).
-3. Click **New +** → **Web Service**.
-4. Connect your GitHub repository.
-5. Fill in the following settings:
-   - **Name**: `csab-choice-filling`
-   - **Language / Environment**: `Python 3`
-   - **Build Command**:
-     ```bash
-     npm --prefix frontend install && npm --prefix frontend run build && pip install -r requirements.txt
-     ```
-   - **Start Command**:
-     ```bash
-     uvicorn app:app --host 0.0.0.0 --port $PORT
-     ```
-6. Click **Deploy Web Service**.
-7. Once finished, Render gives you a live public URL (e.g. `https://csab-choice-filling.onrender.com`) that anyone can open in their browser!
+- **🎯 3-Tier Smart Classification**:
+  - **Dream (Ambitious)**: High-tier aspirational choices where the closing rank is slightly above your rank (up to 25% tighter).
+  - **Target (Realistic)**: Balanced options right in your competitive admission zone.
+  - **Safe (Guaranteed Backups)**: Reliable safety choices to ensure you secure a seat.
+- **⚡ Desirability Scoring**: Ranks colleges using a balanced composite score:
+  - **Branch Preference (50%)** + **Institute Reputation (40%)** + **Admission Odds (10%)** + **Home State Quota Bonus (+5 pts)**.
+- **🏛️ Comprehensive Cutoff Database**: Over **3,300+ CSAB official cutoff data points** across **108 Institutes** (NITs, IIITs, GFTIs) and **185 Programs**.
+- **🌓 Modern Web UI**: Fast React interface with Light/Dark theme toggle, instant search, branch re-ordering, and mobile responsiveness.
+- **☁️ Zero-Install Cloud Ready**: Configured with `vercel.json`, `render.yaml`, and `Dockerfile` for instant free web deployment.
 
 ---
 
-### Option 2: Deploy with Vercel (Serverless Python + Vite Frontend)
+## 🔗 Try It Live
 
-This repository includes pre-configured `vercel.json` and `api/index.py` serverless functions.
+You don't need to install anything on your machine. Access the live web app directly:
 
-1. Push your repository to **GitHub**.
-2. Go to [Vercel](https://vercel.com) and click **Add New** → **Project**.
-3. Import your GitHub repository.
-4. Keep the Framework Preset as **Vite** or **Other**.
-5. Click **Deploy**. Vercel will automatically build the frontend and host the Python serverless API.
+👉 **[https://csab-choice-planner.vercel.app/](https://csab-choice-planner.vercel.app/)**
 
 ---
 
-### Option 3: Deploy with Docker
+## 💻 Local Installation & Setup
 
+If you want to run the project locally on your computer:
+
+### 1. Clone the repository
 ```bash
-# Build the container image
-docker build -t csab-assistant .
-
-# Run the container
-docker run -p 8000:8000 csab-assistant
-```
-Visit `http://localhost:8000` in your browser.
-
----
-
-## ❓ Why did GitHub Deployment show "Internal Server Error"?
-
-If you previously deployed only to **GitHub Pages** (or standard static web hosting):
-- **GitHub Pages only hosts static files (HTML, CSS, JS)**. It **cannot run Python scripts** or host the SQLite database (`csab.db`).
-- When a user entered their rank and clicked "Check Options", the frontend made a request to `/api/recommend`.
-- Because there was no Python server running to answer that request, the browser received an **Internal Server Error (500)** or **404 Not Found**.
-- **Fix**: Deploying to **Render** or **Vercel** (using the instructions above) runs the Python backend (`app.py`) in the cloud alongside the frontend so `/api/recommend` works flawlessly.
-
----
-
-## 💻 Local Setup & Development
-
-If you wish to run or develop the project locally on your machine:
-
-### Quick Start on Windows
-
-Double-click `run_app.bat` or run:
-```powershell
-.\run_app.ps1
-```
-This automatically starts the backend server and opens `http://localhost:8000` in your browser.
-
----
-
-### Manual Setup
-
-#### 1. Clone the repository
-```bash
-git clone https://github.com/<your-username>/<your-repo-name>.git
-cd "CSAB Choice filling order"
+git clone https://github.com/PrikshitSharmaCS/CSAB_CHOICE_PLANNER.git
+cd CSAB_CHOICE_PLANNER
 ```
 
-#### 2. Set up Python backend
+### 2. Set up Python backend
 ```bash
 # Create and activate virtual environment
 python -m venv .venv
-source .venv/bin/activate  # On Windows: .venv\Scripts\activate
 
-# Install backend dependencies
+# On Windows:
+.venv\Scripts\activate
+# On Linux/macOS:
+source .venv/bin/activate
+
+# Install dependencies
 pip install -r requirements.txt
 ```
 
-#### 3. Build React frontend
+### 3. Build the React frontend
 ```bash
 cd frontend
 npm install
@@ -122,94 +70,70 @@ npm run build
 cd ..
 ```
 
-#### 4. Run the server
+### 4. Start the server
 ```bash
 uvicorn app:app --host 127.0.0.1 --port 8000 --reload
 ```
 Open **[http://localhost:8000](http://localhost:8000)** in your browser!
 
+*(On Windows, you can also just double-click `run_app.bat` to launch everything with one click).*
+
 ---
 
-## 📊 How the Desirability Score is Calculated
+## 📊 How the Score is Calculated
 
-Every eligible college and branch combination is scored on a scale of **0 to 105** using a 4-part formula:
+Every eligible college-branch option receives a score from **0 to 105** calculated as:
 
 $$\text{Final Score} = (0.50 \times S_{\text{branch}}) + (0.40 \times S_{\text{institute}}) + (0.10 \times S_{\text{probability}}) + B_{\text{homestate}}$$
 
-| Component | Weight | How it works |
+| Factor | Weight | Explanation |
 | :--- | :---: | :--- |
-| **Branch Score** ($S_{\text{branch}}$) | **50%** | Ranked from 100 down to 40 based on the order in your branch preference list. |
-| **Institute Score** ($S_{\text{institute}}$) | **40%** | Based on counsellor reputation tiers (Top NITs: 90–98, Mid NITs / Top IIITs: 75–88, Newer GFTIs: 50–70). |
-| **Admission Probability** ($S_{\text{probability}}$) | **10%** | Higher scores for safe choices with closing ranks well above your rank. |
-| **Home State Bonus** ($B_{\text{homestate}}$) | **+5 pts** | Added when the college is in your home state (if you prioritize Home State). |
+| **Branch Score** ($S_{\text{branch}}$) | **50%** | Scored from 100 down to 40 based on your preference sequence. |
+| **Institute Score** ($S_{\text{institute}}$) | **40%** | Reputational ranking (Top NITs: 90–98, Mid NITs / Top IIITs: 75–88, Newer GFTIs: 50–70). |
+| **Admission Probability** ($S_{\text{probability}}$) | **10%** | Higher scores for colleges where your rank is safely above the cutoff. |
+| **Home State Bonus** ($B_{\text{homestate}}$) | **+5 pts** | Applied when the college is within your home state. |
 
-### Choice Ordering Philosophy
-In official JoSAA / CSAB counselling, choices must **always** be ordered from most ambitious to safest:
-1. **Dream Choices (Top)**: Aim for higher-tier institutes/branches with lower risk.
-2. **Target Choices (Middle)**: Realistic admissions matching your exact rank range.
-3. **Safe Choices (Bottom)**: Guaranteed fallbacks to secure your seat.
+### CSAB Choice Ordering Strategy
+The algorithm orders your final list strictly by:
+1. **Dream Options (Top)**: Maximizes chances of securing an aspirational seat with zero downside.
+2. **Target Options (Middle)**: Strong, realistic options matching your merit rank.
+3. **Safe Options (Bottom)**: Solid fallback choices to ensure you don't exit counselling unallocated.
 
 ---
 
-## 📁 Repository Structure
+## 📁 Project Structure
 
 ```text
 ├── api/
 │   └── index.py                      # Vercel serverless entrypoint
 ├── DATA/
-│   └── csab_institute_metadata.json  # Institute reputation & state mapping
+│   └── csab_institute_metadata.json  # Institute ranking & state metadata
 ├── frontend/
 │   ├── src/
-│   │   ├── components/               # React UI components (ChoiceTable, etc.)
+│   │   ├── components/               # ChoiceTable & UI components
 │   │   ├── pages/                    # Home, Profile Form, Results pages
-│   │   ├── services/                 # API client for /api/recommend
-│   │   └── types.ts                  # TypeScript types & interfaces
+│   │   ├── services/                 # Frontend API client
+│   │   └── types.ts                  # Data models & interfaces
 │   ├── package.json
 │   └── vite.config.ts
 ├── recommendation_engine/
 │   ├── classifier.py                 # Dream / Target / Safe classifier
-│   ├── engine.py                     # Main engine pipeline & deduplication
-│   ├── filters.py                    # Quota, rank, category, branch filtering
-│   ├── models.py                     # Pydantic data schemas
-│   └── ranker.py                     # Desirability scoring algorithm
-├── app.py                            # FastAPI application & static file server
-├── csab.db                           # SQLite database with all cutoff records
-├── Dockerfile                        # Universal container definition
-├── render.yaml                       # Render.com 1-click blueprint
-├── vercel.json                       # Vercel cloud deployment routing
+│   ├── engine.py                     # Recommendation & deduplication logic
+│   ├── filters.py                    # Quota, rank, category, branch filters
+│   ├── models.py                     # Pydantic schemas
+│   └── ranker.py                     # Desirability scoring algorithms
+├── app.py                            # FastAPI app & static file host
+├── csab.db                           # SQLite database with cutoff data
+├── Dockerfile                        # Multi-stage production container
+├── render.yaml                       # Render deployment blueprint
+├── vercel.json                       # Vercel serverless configuration
 ├── requirements.txt                  # Python dependencies
-├── run_app.bat                       # Windows one-click launcher
-└── README.md                         # Documentation
+├── run_app.bat                       # Windows 1-click launcher
+└── README.md
 ```
 
 ---
 
-## 📤 How to Push this Repository to GitHub
-
-Run these commands in your project folder to push to GitHub:
-
-```bash
-# 1. Initialize git (if not already done)
-git init
-
-# 2. Add all files (the .gitignore will automatically skip virtual environments & node_modules)
-git add .
-
-# 3. Create your first commit
-git commit -m "feat: complete CSAB choice filling assistant with cloud deployment support"
-
-# 4. Set default branch to main
-git branch -M main
-
-# 5. Link to your GitHub repository
-git remote add origin https://github.com/<YOUR_GITHUB_USERNAME>/<YOUR_REPO_NAME>.git
-
-# 6. Push to GitHub
-git push -u origin main
-```
-
----
-
-## 📜 License
+## 📄 License
 
 Distributed under the **MIT License**. See `LICENSE` for more information.
